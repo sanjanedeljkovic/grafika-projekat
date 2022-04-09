@@ -217,6 +217,7 @@ private:
 };
 
 
+// izmenjeno za potrebe HDRa
 unsigned int TextureFromFile(const char *path, const string &directory, bool gamma)
 {
     string filename = string(path);
@@ -230,15 +231,19 @@ unsigned int TextureFromFile(const char *path, const string &directory, bool gam
     if (data)
     {
         GLenum format;
+        GLenum iternal;
         if (nrComponents == 1)
             format = GL_RED;
-        else if (nrComponents == 3)
+        else if (nrComponents == 3) {
             format = GL_RGB;
-        else if (nrComponents == 4)
+            iternal = GL_SRGB;
+        }
+        else if (nrComponents == 4) {
+            iternal = GL_SRGB_ALPHA;
             format = GL_RGBA;
-
+        }
         glBindTexture(GL_TEXTURE_2D, textureID);
-        glTexImage2D(GL_TEXTURE_2D, 0, format, width, height, 0, format, GL_UNSIGNED_BYTE, data);
+        glTexImage2D(GL_TEXTURE_2D, 0, iternal, width, height, 0, format, GL_UNSIGNED_BYTE, data);
         glGenerateMipmap(GL_TEXTURE_2D);
 
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
