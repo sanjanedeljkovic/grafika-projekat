@@ -23,3 +23,4 @@ Klik na `dugme R` - Pokemoni se vracaju u mirno stanje :)
 Klik na `dugme U` - ukljucivanje/iskljucivanje ImGuia i mogucnost slobodnijeg i opsirnijeg kretanja po sceni (pomocu kursora)
 
 Generalno kretanje po sceni: tipke `W (gore)` `A (levo)` `S (dole)` `D (desno)` + pomeranje pomocu `kursora` koja je moguce iskljuciti putem CheckBoxa.# GRAFIKA
+# grafika-projekat
